@@ -25,7 +25,6 @@ require "rubygems"
 require "nokogiri"
 require "open-uri"
 require "net/http"
-require "open_uri_redirections"
 
 class Feedbag
   VERSION = '0.10.2'
@@ -98,7 +97,7 @@ class Feedbag
     end
 
     begin
-      html = URI.open(url, :allow_redirections => :all, "User-Agent" => @user_agent) do |f|
+      html = URI.open(url, :redirect => :all, "User-Agent" => @user_agent) do |f|
         content_type = f.content_type.downcase
         if content_type == "application/octet-stream" # open failed
           content_type = f.meta["content-type"].gsub(/;.*$/, '')
