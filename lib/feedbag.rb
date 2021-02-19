@@ -25,7 +25,6 @@ require "rubygems"
 require "nokogiri"
 require "open-uri"
 require "net/http"
-require "open_uri_redirections"
 
 class Feedbag
 
