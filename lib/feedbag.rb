@@ -96,7 +96,7 @@ class Feedbag
     end
 
     begin
-      html = URI.open(url, :allow_redirections => :all) do |f|
+      html = URI.open(url, :redirect => :all) do |f|
         content_type = f.content_type.downcase
         if content_type == "application/octet-stream" # open failed
           content_type = f.meta["content-type"].gsub(/;.*$/, '')
